@@ -1,0 +1,42 @@
+<div class="mx-[105px]">
+    <div class="flex gap-9 justify-between">
+      <div class="flex flex-1 flex-col justify-center items-center">
+          <h1 class="font-bold text-[40px]">
+            {{ section.settings.text-box }}
+          </h1>
+          <p class="max-w-[400px] leading-[1.2] text-[25px] font-medium">{{section.settings.description-box}}</p>
+      </div>
+      <div class="w-[400px] flex-1 h-[400px] overflow-hidden rounded-2xl">
+          <img src={{  section.settings.image-box | img_url: '500x' }} alt='product' class="w-full h-full object-cover"/>
+      </div>
+  </div>
+</div>
+
+{% schema %}
+{
+	"name": "Product of the day",
+	"settings": [{
+			"type": "text",
+			"id": "text-box",
+			"label": "Title",
+			"default": "Awesome product"
+		},
+	{
+			"type": "text",
+			"id": "description-box",
+			"label": "Description",
+			"default": "some description"
+		},
+	{
+			"type": "image_picker",
+			"id": "image-box",
+			"label": "Image"
+		}
+
+	],
+	"presets": [{
+		"name": "Product of the day",
+		"category": "Product"
+	}]
+}
+{% endschema %}
