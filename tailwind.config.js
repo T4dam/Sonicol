@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	// prefix: 'x',
+	// prefix: 't',
 	content: [
 		'./config/*.json',
 		'./layout/*.liquid',

@@ -6,9 +6,14 @@
         },
         "features": {
             "type": "features"
+        },
+        "features": {
+            "type": "product-details"
         }
     },
     "order": [
+        "product-details",
+        "features",
         "main"
     ]
 }
