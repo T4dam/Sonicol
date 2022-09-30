@@ -1,0 +1,121 @@
+<div class="bg-white py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="lg:text-center">
+        <h2 class="text-lg font-semibold newColor" >{{ section.settings.subtitle-box }}</h2>
+        <p class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">{{ section.settings.title-box }}</p>
+        <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">{{section.settings.post-title-text-box}}</p>
+      </div>
+  
+      <div class="mt-10">
+          
+          <dl class="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0">
+            {% for block in section.blocks %}
+          <div class="relative">
+            <dt>
+              <div class="absolute flex h-12 w-12 items-center justify-center rounded-md text-white new-bg">
+                <!-- Heroicon name: outline/globe-alt -->
+                <img src='{{ block.settings.icon-box | img_url }}' alt='{{ block.settings.title-box }}' class="h-6 w-6" />
+              </div>
+              <p class="ml-16 text-lg font-medium leading-6 text-gray-900">{{block.settings.feature-title-box}}</p>
+            </dt>
+            <dd class="mt-2 ml-16 text-base text-gray-500">{{block.settings.feature-desc-box}}</dd>
+          </div>
+            {% endfor %}
+         
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  {% schema %}
+ {
+ 	"name": "Features",
+ 	"settings": [{
+ 			"type": "text",
+ 			"id": "title-box",
+ 			"label": "Title",
+ 			"default": "Some Awesome title"
+ 		}, {
+ 			"type": "text",
+ 			"id": "subtitle-box",
+ 			"label": "Subtitle",
+ 			"default": "Some Awesome subtitle"
+ 		},
+ 		{
+ 			"type": "textarea",
+ 			"id": "post-title-text-box",
+ 			"label": "Subtitle",
+ 			"default": "Some Awesome description"
+ 		},
+         {
+  "type": "color",
+  "id": "body_text",
+  "label": "Body text",
+  "default": "#000000"
+}
+
+ 	],
+ 	"blocks": [{
+ 		"type": "text",
+ 		"name": "Feature block",
+ 		"settings": [{
+ 				"type": "image_picker",
+ 				"id": "icon-box",
+ 				"label": "Icon"
+ 				// "default": "Some Awesome title"
+ 			},
+            {
+ 				"type": "text",
+ 				"id": "feature-title-box",
+ 				"label": "Title",
+ 				"default": "Some Awesome title"
+ 			},
+ 			{
+ 				"type": "textarea",
+ 				"id": "feature-desc-box",
+ 				"label": "Subtitle",
+ 				"default": "Ut feugiat libero at lorem ornare commodo. Mauris eleifend velit quis sem interdum elementum. Vivamus sit amet dolor pharetra, bibendum quam in, tempor metus."
+ 			},
+ 			{
+ 				"type": "select",
+ 				"id": "feature-color-box",
+ 				"label": "Select color of the box",
+ 				"default": "#77dd77",
+                 "options": [
+        {
+          "value": "#77dd77",
+          "label": "Green"
+        },
+        {
+          "value": "#ff6961",
+          "label": "red"
+        },
+        {
+          "value": "#dddd77",
+          "label": "Yellow"
+        }
+      ]
+ 			}
+            
+
+ 		]
+ 	}],
+ 	"presets": [{
+ 		"name": "Features",
+ 		"category": "Custom"
+ 	}]
+
+ }
+  {% endschema %}
+
+{% style %}
+
+.newColor {
+    color: {{section.settings.body_text}};
+}
+.new-bg {
+    background-color: {{section.settings.body_text}};
+}
+  
+
+{% endstyle %}

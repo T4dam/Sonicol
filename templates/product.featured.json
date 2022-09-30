@@ -3,6 +3,9 @@
     "sections": {
         "main": {
             "type": "productoftheday"
+        },
+        "features": {
+            "type": "features"
         }
     },
     "order": [
