@@ -7,12 +7,12 @@
         "features": {
             "type": "features"
         },
-        "features": {
+        "about": {
             "type": "product-details"
         }
     },
     "order": [
-        "product-details",
+        "about",
         "features",
         "main"
     ]

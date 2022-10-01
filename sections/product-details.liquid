@@ -1,47 +1,201 @@
-<div class="bg-white">
-    <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-y-16 gap-x-8 py-24 px-4 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
-      <div>
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Technical Specifications</h2>
-        <p class="mt-4 text-gray-500">The walnut wood card tray is precision milled to perfectly fit a stack of Focus cards. The powder coated steel divider separates active cards from new ones, or can be used to archive important task lists.</p>
-  
-        <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
-          <div class="border-t border-gray-200 pt-4">
-            <dt class="font-medium text-gray-900">Origin</dt>
-            <dd class="mt-2 text-sm text-gray-500">Designed by Good Goods, Inc.</dd>
-          </div>
-  
-          <div class="border-t border-gray-200 pt-4">
-            <dt class="font-medium text-gray-900">Material</dt>
-            <dd class="mt-2 text-sm text-gray-500">Solid walnut base with rare earth magnets and powder coated steel card cover</dd>
-          </div>
-  
-          <div class="border-t border-gray-200 pt-4">
-            <dt class="font-medium text-gray-900">Dimensions</dt>
-            <dd class="mt-2 text-sm text-gray-500">6.25&quot; x 3.55&quot; x 1.15&quot;</dd>
-          </div>
-  
-          <div class="border-t border-gray-200 pt-4">
-            <dt class="font-medium text-gray-900">Finish</dt>
-            <dd class="mt-2 text-sm text-gray-500">Hand sanded and finished with natural oil</dd>
-          </div>
-  
-          <div class="border-t border-gray-200 pt-4">
-            <dt class="font-medium text-gray-900">Includes</dt>
-            <dd class="mt-2 text-sm text-gray-500">Wood card tray and 3 refill packs</dd>
-          </div>
-  
-          <div class="border-t border-gray-200 pt-4">
-            <dt class="font-medium text-gray-900">Considerations</dt>
-            <dd class="mt-2 text-sm text-gray-500">Made from natural materials. Grain and color vary with each item.</dd>
-          </div>
-        </dl>
-      </div>
-      <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
-        <img src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-01.jpg" alt="Walnut card tray with white powder coated steel divider and 3 punchout holes." class="rounded-lg bg-gray-100">
-        <img src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-02.jpg" alt="Top down view of walnut card tray with embedded magnets and card groove." class="rounded-lg bg-gray-100">
-        <img src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-03.jpg" alt="Side of walnut card tray with card groove and recessed card area." class="rounded-lg bg-gray-100">
-        <img src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-04.jpg" alt="Walnut card tray filled with cards and card angled in dedicated groove." class="rounded-lg bg-gray-100">
-      </div>
+
+<div class="wrapper">
+    <div class="text-container">
+        <h2 class="title">
+            <span class="d-block">
+               {{ section.settings.title-box }}
+            </span>
+        </h2>
+        <p class="text-desc">
+           {{ section.settings.desc-box }}
+        </p>
+        <div class="button-container">
+            <div class="button-wrapper">
+                <a href="{{ section.settings.button_link }}">
+                    <button type="button" class="button-styled">
+                        {{ section.settings.button_text }}
+                    </button>
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
-  
+    <div class="image-container">
+        <img src="{{ section.settings.image | image_url: width: 400 }}" class="image-radius w-half" loading="lazy" alt="product"/>
+        <div>
+            <img src="{{ section.settings.image2 | image_url: width: 400 }}" class="image-radius margin-b" loading="lazy" alt="product"/>
+            <img src="{{ section.settings.image3 | image_url: width: 400 }}" class="image-radius" loading="lazy" alt="product"/>
+        </div>
+    </div>
+</div>
+
+
+ {% schema %}
+{
+  "name": "Product banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title-box",
+      "label": "Title",
+      "default": "Some Awesome title"
+    },
+    {
+      "type": "textarea",
+      "id": "desc-box",
+      "label": "Text area",
+      "default": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt luctus, nisl nisl aliquam lorem, eget aliquam nisl nisl sit amet lorem. Sed euismod, nisl vel tincidunt luctus, nisl nisl aliquam lorem, eget aliquam nisl nisl sit amet lorem."
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Button"
+    },
+    {
+    "type": "color",
+    "id": "button_color",
+    "label": "Button color",
+    "default": "#000000"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image #1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Image #2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image3",
+      "label": "Image #3"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "The banner for product",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+.wrapper {
+    overflow: hidden; 
+position: relative; 
+background-color: #ffffff; 
+}
+.text-container {
+    z-index: 20; 
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    padding-top: 3rem;
+    padding-bottom: 3rem; 
+    width: 100%; 
+}
+.title {
+    color: #000000; 
+font-size: 1.875rem;
+line-height: 2.25rem; 
+font-weight: 800; 
+}
+.d-block {
+    display: block; 
+}
+.text-desc {
+    font-size: 1rem;
+    margin-top: 1rem; 
+    color: #9CA3AF; 
+}
+.button-wrapper {
+    display: inline-flex; 
+margin-top: 3rem; 
+border-radius: 0.375rem; 
+box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); 
+}
+.button-styled {
+padding-top: 0.5rem;
+padding-bottom: 0.5rem; 
+padding-left: 1rem;
+padding-right: 1rem; 
+background-color: {{ section.settings.button_color }};
+color: #ffffff; 
+font-size: 1rem;
+line-height: 1.5rem; 
+font-weight: 600; 
+text-align: center; 
+width: 100%; 
+border-radius: 0.5rem; 
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+}
+{% comment %}
+.button-styled:hover {
+ background-color: #047857; 
+}
+{% endcomment %}
+ .image-container {
+    display: flex; 
+    padding: 2rem; 
+    align-items: center; 
+    gap: 2rem; 
+ }
+ .image-radius {
+    border-radius: 0.5rem; 
+ }
+ .margin-b{
+    margin-bottom: 2rem; 
+ }
+.w-half {
+    width: 50%; 
+}
+
+
+ @media screen and (min-width: 1024px) { 
+    .image-container {
+        padding: 6rem; 
+    }
+ }
+
+
+@media screen and (min-width: 1024px) { 
+    .button-container {
+        margin-top: 0; 
+      flex-shrink: 0; 
+    }
+ }
+@media screen and (min-width: 640px) { 
+    .title {
+
+        font-size: 2.25rem;
+        line-height: 2.5rem; 
+    }
+ }
+
+@media screen and (min-width: 640px)  { 
+    padding-left: 1.5rem;
+    padding-right: 1.5rem; 
+ }
+
+ @media screen and (min-width: 1024px)  { 
+    padding-left: 2rem;
+    padding-right: 2rem; 
+    padding-top: 4rem;
+    padding-bottom: 4rem; 
+ }
+
+@media screen and (min-width: 1024px) {
+    .wrapper {
+        display: flex; 
+align-items: center; 
+    }
+}
+{% endstyle %}
