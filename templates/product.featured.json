@@ -1,19 +1,24 @@
 {
-    "name": "Product",
-    "sections": {
-        "main": {
-            "type": "productoftheday"
-        },
-        "features": {
-            "type": "features"
-        },
-        "about": {
-            "type": "product-details"
-        }
+  "sections": {
+    "main": {
+      "type": "productoftheday",
+      "settings": {
+      }
     },
-    "order": [
-        "about",
-        "features",
-        "main"
-    ]
+    "features": {
+      "type": "features",
+      "settings": {
+      }
+    },
+    "about": {
+      "type": "product-details",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "about",
+    "features",
+    "main"
+  ]
 }
